@@ -2,13 +2,11 @@ import { CommonModule } from '@angular/common';
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
 import * as joi from 'joi';
 
-export type TConfig = number | string | Object;
-
 export interface IConfig<T> {
   [key: string]: T;
 }
 
-export const CONFIG_TOKEN: InjectionToken<IConfig<TConfig>> = new InjectionToken<TConfig>('Config');
+export const CONFIG_TOKEN: InjectionToken<IConfig<unknown>> = new InjectionToken<unknown>('Config');
 
 @NgModule({
   imports: [CommonModule]

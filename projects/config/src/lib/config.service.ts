@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { CONFIG_TOKEN, IConfig, TConfig } from './config.module';
+import { CONFIG_TOKEN, IConfig } from './config.module';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +7,14 @@ import { CONFIG_TOKEN, IConfig, TConfig } from './config.module';
 export class ConfigService {
   constructor(
     @Inject(CONFIG_TOKEN)
-    private readonly config: IConfig<TConfig>
+    private readonly config: IConfig<unknown>
   ) { }
 
   public get<T>(key: string): T {
     return this.config[key] as T;
   }
 
-  public getAll<T>(): IConfig<T | TConfig> {
+  public getAll<T>(): IConfig<T | unknown> {
     return this.config;
   }
 }
