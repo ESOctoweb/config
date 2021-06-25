@@ -14,7 +14,7 @@ export class ConfigService {
     return this.config[key] as T;
   }
 
-  public getAll<T>(): IConfig<T | unknown> {
-    return this.config;
+  public getAll<T>(): IConfig<T> {
+    return this.config as IConfig<T>;
   }
 }
