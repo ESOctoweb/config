@@ -1,5 +1,5 @@
 {
-  "name": "config",
+  "name": "@octoweb/config",
   "author": {
     "email": "dev@octoweb.es",
     "name": "Fabien Gues"
