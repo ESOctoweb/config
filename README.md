@@ -1,5 +1,5 @@
-<div style="display: block; width: 15%; max-width: 200px; min-width: 100px; margin: auto; margin-top: 20px; margin-bottom: 40px;">
-    <img src="./logo-octoweb.png" alt="Octoweb Logo">
+<div style="display: block;  max-width: 200px; min-width: 100px; margin: auto; margin-top: 20px; margin-bottom: 40px;">
+    <img src="./logo-octoweb.png" alt="Octoweb Logo" width="15%">
 </div>
 
 #### Description
