@@ -59,7 +59,7 @@ app.component.ts
 import { ConfigService } from '@octoweb/config';
 
 @Component({...})
-export class AppComponent {
+export class AppComponent implements OnInit {
   ...
   constructor(private readonly configService: ConfigService) {}
 
