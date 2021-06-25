@@ -1,5 +1,5 @@
 {
-  "name": "@octoweb/config",
+  "name": "octoweb-config",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
