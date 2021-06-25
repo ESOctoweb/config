@@ -1,27 +1,68 @@
-# OctowebConfig
+#### Description
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+@octoweb/config is an Angular friendly module than give you a better abstraction, security and maintainability of the environment config and its uses.
 
-## Development server
+**Abstraction**
+Use ConfigService to get access to the environment properties.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Security and maintainability**
+Using [Joi](https://joi.dev) you should be able to validate your environment file. If environment doesn't match with the schema, it will throw an error.
 
-## Code scaffolding
+#### Details
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
-## Build
+It was build with:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- "@angular/common": "^12.0.5"
+- "@angular/core": "^12.0.5"
+- "joi": "^17.4.0"
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Get started
 
-## Running end-to-end tests
+`yarn add @octoweb/config` or `npm i @octoweb/config`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Example
 
-## Further help
+*app.module.ts*
+```
+@NgModule({
+  ...
+  imports: [
+    ...,
+    ConfigModule.forRoot<IEnvironment>({
+      config: environment,
+      schema: configSchema,
+    })
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+config.schema.ts
+```
+export const configSchema: joi.ObjectSchema = joi.object({
+  apiUrl: joi.when('production', { is: false, then: joi.string().required() }),
+  production: joi.boolean().default(false).required(),
+});
+```
+
+app.component.ts
+```
+import { ConfigService } from '@octoweb/config';
+
+@Component({...})
+export class AppComponent {
+  ...
+  constructor(private readonly configService: ConfigService) {}
+
+  public ngOnInit(): void {
+    this.configService.get<string>('apiUrl'); // Return apiUrl
+    this.configService.getAll<IEnvironment>(); // Return all environment
+  }
+  ...
+}
+```
