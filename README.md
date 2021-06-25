@@ -1,4 +1,6 @@
-<img src="./logo-octoweb.png" alt="Octoweb Logo" style="display: block; margin: auto" width="15%">
+<p align="center">
+  <img src="./logo-octoweb.png" alt="Octoweb Logo" width="15%">
+</p>
 
 #### Description
 
