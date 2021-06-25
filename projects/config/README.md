@@ -1,7 +1,3 @@
-<img src="./logo-octoweb.png"
-     alt="Octoweb Logo"
-     style="display: block; width: 15%; max-width: 200px; min-width: 100px; margin: auto; margin-top: 20px; margin-bottom: 40px;" />
-
 #### Description
 
 @octoweb/config is an Angular friendly module than give you a better abstraction, security and maintainability of the environment config and its uses.
