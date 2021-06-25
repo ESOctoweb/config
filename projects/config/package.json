@@ -11,6 +11,10 @@
     "@angular/core": "^12.0.5",
     "joi": "^17.4.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevOctoweb/config.git"
+  },
   "dependencies": {
     "tslib": "^2.1.0"
   },
