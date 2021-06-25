@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
 import * as joi from 'joi';
 
-interface IKeyAny {
-  [key: string]: any;
+interface IKeyUnknown {
+  [key: string]: unknown;
 }
 
-export const CONFIG_TOKEN: InjectionToken<IKeyAny> = new InjectionToken<IKeyAny>('Config');
+export const CONFIG_TOKEN: InjectionToken<IKeyUnknown> = new InjectionToken<IKeyUnknown>('Config');
 
 @NgModule({
   imports: [CommonModule]
