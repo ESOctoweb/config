@@ -1,16 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ConfigComponent } from './config.component';
 
-
-
-@NgModule({
-  declarations: [
-    ConfigComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    ConfigComponent
-  ]
-})
+@NgModule({})
 export class ConfigModule { }
