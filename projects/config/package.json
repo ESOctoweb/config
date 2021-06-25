@@ -4,6 +4,7 @@
     "email": "dev@octoweb.es",
     "name": "Fabien Gues"
   },
+  "private": "false",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
