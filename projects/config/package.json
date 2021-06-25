@@ -1,5 +1,9 @@
 {
   "name": "config",
+  "author": {
+    "email": "dev@octoweb.es",
+    "name": "Fabien Gues"
+  },
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
@@ -7,5 +11,6 @@
   },
   "dependencies": {
     "tslib": "^2.1.0"
-  }
+  },
+  "keywords": ["Angular", "Joi", "Abstract Configuration", "Configuration", "Front end"]
 }
