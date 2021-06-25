@@ -1,24 +1,68 @@
-# Config
+#### Description
+
+@octoweb/config is an Angular friendly module than give you a better abstraction, security and maintainability of the environment config and its uses.
+
+**Abstraction**
+Use ConfigService to get access to the environment properties.
+
+**Security and maintainability**
+Using [Joi](https://joi.dev) you should be able to validate your environment file. If environment doesn't match with the schema, it will throw an error.
+
+#### Details
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
-## Code scaffolding
+It was build with:
 
-Run `ng generate component component-name --project config` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project config`.
-> Note: Don't forget to add `--project config` or else it will be added to the default project in your `angular.json` file. 
+- "@angular/common": "^12.0.5"
+- "@angular/core": "^12.0.5"
+- "joi": "^17.4.0"
 
-## Build
 
-Run `ng build config` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Get started
 
-## Publishing
+`yarn add @octoweb/config` or `npm i @octoweb/config`
 
-After building your library with `ng build config`, go to the dist folder `cd dist/config` and run `npm publish`.
+#### Example
 
-## Running unit tests
+*app.module.ts*
+```
+@NgModule({
+  ...
+  imports: [
+    ...,
+    ConfigModule.forRoot<IEnvironment>({
+      config: environment,
+      schema: configSchema,
+    })
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-Run `ng test config` to execute the unit tests via [Karma](https://karma-runner.github.io).
+config.schema.ts
+```
+export const configSchema: joi.ObjectSchema = joi.object({
+  apiUrl: joi.when('production', { is: false, then: joi.string().required() }),
+  production: joi.boolean().default(false).required(),
+});
+```
 
-## Further help
+app.component.ts
+```
+import { ConfigService } from '@octoweb/config';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({...})
+export class AppComponent {
+  ...
+  constructor(private readonly configService: ConfigService) {}
+
+  public ngOnInit(): void {
+    this.configService.get<string>('apiUrl'); // Return apiUrl
+    this.configService.getAll<IEnvironment>(); // Return all environment
+  }
+  ...
+}
+```
